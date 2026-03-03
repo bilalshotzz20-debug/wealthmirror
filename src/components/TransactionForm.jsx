@@ -1,5 +1,6 @@
 // src/components/TransactionForm.jsx
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 export function TransactionForm({ transactionToEdit, onSubmit, onCancel }) {
   const [formData, setFormData] = useState({
@@ -87,20 +88,24 @@ export function TransactionForm({ transactionToEdit, onSubmit, onCancel }) {
         </select>
       </div>
       <div className="flex gap-2">
-        <button
+        <motion.button
           type="submit"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
           className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
         >
           {transactionToEdit ? 'Update' : 'Add'} Transaction
-        </button>
+        </motion.button>
         {onCancel && (
-          <button
+          <motion.button
             type="button"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             onClick={onCancel}
             className="px-4 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400"
           >
             Cancel
-          </button>
+          </motion.button>
         )}
       </div>
     </form>
